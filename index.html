@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <script src="https://code.angularjs.org/1.3.12/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MyController">
+<input ng-model="query" />
+<div ng-repeat="item in items | filter: { data: { title: query }}">
+  <span class="category">{{item.category}}</span>
+  <div ng-repeat="nested in item.data | filter: { title: query }" class="nested">
+    {{nested.title}} - {{nested.path}}
+  </div>
+</div>
+  </body>
+
+</html>
